@@ -2,8 +2,10 @@ package id.ihwan.kotlineverywhere
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import id.ihwan.kotlineverywhere.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         viewModel.setData(User("123", "Ihwan ID"))
+
+        //if not use Data Binding
+//        viewModel.user.observe(this, Observer {user ->
+//            userName.text = user.name
+//        })
+
         setContentView(binding.root)
     }
 }

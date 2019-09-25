@@ -19,8 +19,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.viewModel = viewModel
         binding.handler = EventHandler(this)
+        binding.urlImage = "https://dummyimage.com/600x400/000/fff&text=Hello"
         binding.lifecycleOwner = this
-        viewModel.setData(User("123", binding.etName.text.toString()))
+        viewModel.setData(User("123", "ihwan"))
 
         //if not use Data Binding
 //        viewModel.user.observe(this, Observer {user ->

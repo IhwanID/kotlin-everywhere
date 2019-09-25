@@ -10,6 +10,9 @@
         <variable
             name="handler"
             type="id.ihwan.kotlineverywhere.EventHandler" />
+        <variable
+            name="urlImage"
+            type="String" />
     </data>
 
     <RelativeLayout
@@ -17,26 +20,28 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_centerVertical="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/image_user"
+            tools:src="@mipmap/ic_launcher"
+            app:loadImage="@{urlImage}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="16dp"/>
 
+
         <TextView
-            android:layout_below="@id/et_name"
+            android:layout_alignTop="@id/image_user"
             android:id="@+id/user_name"
-            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/image_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.introduction}"
-            tools:text="name"/>
+            tools:text="hello my name is . . . "/>
         <Button
             android:text="click me"
+            android:layout_alignBottom="@id/image_user"
             android:onClick="@{() -> handler.onButtonClick()}"
-            android:layout_below="@id/user_name"
-            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@id/image_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

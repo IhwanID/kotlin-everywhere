@@ -7,22 +7,38 @@
         <variable
             name="viewModel"
             type="id.ihwan.kotlineverywhere.UserViewModel" />
+        <variable
+            name="handler"
+            type="id.ihwan.kotlineverywhere.EventHandler" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"/>
+
         <TextView
-            android:id="@+id/userName"
+            android:layout_below="@id/et_name"
+            android:id="@+id/user_name"
+            android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.introduction}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:text="name"/>
+        <Button
+            android:text="click me"
+            android:onClick="@{() -> handler.onButtonClick()}"
+            android:layout_below="@id/user_name"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </layout>

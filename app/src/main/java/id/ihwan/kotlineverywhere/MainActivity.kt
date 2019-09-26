@@ -13,7 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val binding: ActivityMainBinding = DataBindingUtil
+            .setContentView(this, R.layout.activity_main)
 
         val viewModel = ViewModelProviders.of(this).get(UserViewModel::class.java)
 
@@ -21,12 +22,14 @@ class MainActivity : AppCompatActivity() {
         binding.handler = EventHandler(this)
         binding.urlImage = "https://dummyimage.com/600x400/000/fff&text=Hello"
         binding.lifecycleOwner = this
+
         viewModel.setData(User("123", "ihwan"))
 
         //if not use Data Binding
-//        viewModel.user.observe(this, Observer {user ->
-//            userName.text = user.name
-//        })
+        viewModel.user.observe(this, Observer {user ->
+            user_name.text = user.name
+        })
 
     }
+
 }

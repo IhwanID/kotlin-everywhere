@@ -11,11 +11,11 @@ class UserViewModel: ViewModel() {
 
     val user: LiveData<User> get() = _user
 
-    val introduction = Transformations.map(user) { data ->
-        "Hello my name is ${data.name}"
-    }
-
     fun setData(user: User){
         _user.postValue(user)
+    }
+
+    val introduction = Transformations.map(user) { data ->
+        "Hello my name is ${data.name}"
     }
 }
